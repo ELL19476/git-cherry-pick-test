@@ -1,9 +1,10 @@
 <%- include("../main/htmlStart") %>
 <div class="form-container">
-<div class="blog">
-  <form method="POST" action="/posts/create">
-    <input type="text" name="title" />
-    <input type="text" />
+<div class="blog blog-wall">
+  <form method="POST" action="/posts/create" class="blog blog-createpost">
+    <input class="blog-input blog-input--title" type="text" name="title" />
+    <textarea class="blog-input blog-input--content" name="content" cols="30" rows="10"></textarea>
+    <p class="help-text">Recommended: min. 400 Words</p>
     <input type="submit" />
   </form>
 </div>

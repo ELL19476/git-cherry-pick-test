@@ -46,6 +46,64 @@ a {
   fill: var(--primary-color);
 }
 
+
+.blog-wall, .blog-createpost {
+  width: 90%;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px var(--shadow-color);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.blog-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.blog-input--title {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+.blog-input--title:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.blog-input--content {
+  width: 100%;
+  height: 300px;
+  padding: 16px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.blog-input--content:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.blog-text--content {
+  white-space: pre-wrap;
+  text-align: left;
+  line-height: 1.6;
+}
+
 .feed {
   width: 90%;
   max-width: 800px;
