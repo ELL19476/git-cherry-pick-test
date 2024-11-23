@@ -1,20 +1,20 @@
 version: '3' # docker-compose version
 services: # services which our app going to use. (list of containers we want to create)
   mongo: # container name 
-    image: mongo # On which image container will build
+    image: mongodb/mongodb-community-server # On which image container will build
     restart: always
     ports:
       - "27017:27017"
     volumes:
       - './data:/data/db'
     
-  # api-server:
-  #   image: api-server:v1.2
-  #   command: "testMongo"
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - mongo
+  api-server:
+    image: api-server:v2
+    command: "dev"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
 
 volumes:
   mongodata:

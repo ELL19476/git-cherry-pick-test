@@ -30,11 +30,11 @@ app.use(bodyparser.json());
  */
 function connect(name, test) {
   if (typeof test === "undefined") {
-    console.warn("TRYING TO CONNECT TO URL: " + "mongodb://0.0.0.0/${name}_blog")
-    mongoose.connect(`mongodb://0.0.0.0/${name}_blog`);
+    console.warn(`TRYING TO CONNECT TO URL: " + "mongodb://mongo/${name}_blog`)
+    mongoose.connect(`mongodb://mongo/${name}_blog`);
   } else if (test) {
-    console.warn("TRYING TO CONNECT TO URL: " + "mongodb://0.0.0.0/${name}_blog_test")
-    mongoose.connect(`mongodb://0.0.0.0/${name}_blog_test`);
+    console.warn(`TRYING TO CONNECT TO URL: " + "mongodb://mongo/${name}_blog_test`)
+    mongoose.connect(`mongodb://mongo/${name}_blog_test`);
   }
   const db = mongoose.connection;
   db.on("error", console.error.bind("Connection failure"));

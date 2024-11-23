@@ -122,7 +122,7 @@ function initializeMongoose() {
     mongoose.set("useCreateIndex", true);
     mongoose.set("useUnifiedTopology", true);
 
-    mongoose.connect(`mongodb://0.0.0.0/${blogName}_blog`);
+    mongoose.connect(`mongodb://mongo/${blogName}_blog`);
     const db = mongoose.connection;
     db.on("error", function () {
       reject("Connection failure!");

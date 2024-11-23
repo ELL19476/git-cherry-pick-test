@@ -1,8 +1,7 @@
 # A blog system made in ExpressJS
-[![Build Status](https://travis-ci.com/HDK101/express-blog.svg?branch=master)](https://travis-ci.com/HDK101/express-blog)
 
 ## About
-A simple blog system that i made to test my skills.
+A simple blog system that @HDK101 provides under the MIT Licence. Extended by @ELL19476 for philomatics.
 
 ## Pre-requisites
 - MongoDB(4.2.5)
