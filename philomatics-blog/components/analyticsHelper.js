@@ -1,5 +1,5 @@
-// const { initializeCustomAnalytics } = require("@ell19476/analytics-extended")
-// const analytics = initializeCustomAnalytics();
+const { initializeCustomAnalytics } = require("@ell19476/analytics-extended")
+const analytics = initializeCustomAnalytics();
 
 /* PAGE VIEW TRACKING */
 const currentlyViewedPagesStack = []
@@ -16,8 +16,7 @@ function endCurrentPageViews() {
 function endLastPageView() {
     const view = currentlyViewedPagesStack.pop();
     if(view) {
-        console.warn("PAGE VIEW EVENT: Analytics temporarily disabled, because of faulty module code.")
-        // analytics.pageView(view.name, view.properties);
+        analytics.pageView(view.name, view.properties);
         return true;
     }
     return false;
@@ -25,15 +24,22 @@ function endLastPageView() {
 
 /* EVENT TRACKING */
 function loginEvent(username, metadata={}) {
-    console.warn("LOGIN EVENT: Analytics temporarily disabled, because of faulty module code.")
-    /* analytics.track("login", {
+    analytics.track("login", {
         user: username,
         ...metadata
-    }) */
+    })
+}
+function subscriptionEvent(userId, plan, metadata={}) {
+    analytics.track('subscription_upgraded', {
+        user: userId,
+        plan: plan,
+        amount: plan.price
+    });
 }
 
 module.exports = {
     startPageView,
     endCurrentPageViews,
-    loginEvent
+    loginEvent,
+    subscriptionEvent
 }

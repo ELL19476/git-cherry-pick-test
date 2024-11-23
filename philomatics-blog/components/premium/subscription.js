@@ -1,15 +1,12 @@
 const payment = require('./payment-processor')
+const { subscriptionEvent } = require('../analyticsHelper')
 
 class Subscription {
   async upgradeSubscription(userId, plan) {
     try {
         await payment.handlePayment(userId, plan);
-        const { initializeCustomAnalytics } = require("@ell19476/analytics-extended")
-        await initializeCustomAnalytics().track('subscription_upgraded', {
-            user: userId,
-            plan: plan,
-            amount: plan.price
-        });
+        const { initializeCustomAnalytics } = require("@ell19476/analytics-extended");
+        subscriptionEvent(userId, plan);
 
         return { success: true };
     } catch (error) {

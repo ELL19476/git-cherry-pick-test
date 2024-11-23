@@ -29,7 +29,7 @@
     },
     "homepage": "https://github.com/HDK101/express-blog#readme",
     "dependencies": {
-      "@ell19476/analytics-extended": "2.8.2",
+      "@ell19476/analytics-extended": "2.7.0",
       "body-parser": "^1.19.0",
       "cookie-parser": "^1.4.5",
       "ejs": "^3.1.5",
