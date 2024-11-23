@@ -1,5 +1,5 @@
-const { initializeCustomAnalytics } = require("@ell19476/analytics-extended")
-const analytics = initializeCustomAnalytics();
+// const { initializeCustomAnalytics } = require("@ell19476/analytics-extended")
+// const analytics = initializeCustomAnalytics();
 
 /* PAGE VIEW TRACKING */
 const currentlyViewedPagesStack = []
@@ -16,7 +16,8 @@ function endCurrentPageViews() {
 function endLastPageView() {
     const view = currentlyViewedPagesStack.pop();
     if(view) {
-        analytics.pageView(view.name, view.properties);
+        console.warn("PAGE VIEW EVENT: Analytics temporarily disabled, because of faulty module code.")
+        // analytics.pageView(view.name, view.properties);
         return true;
     }
     return false;
@@ -24,10 +25,11 @@ function endLastPageView() {
 
 /* EVENT TRACKING */
 function loginEvent(username, metadata={}) {
-    analytics.track("login", {
+    console.warn("LOGIN EVENT: Analytics temporarily disabled, because of faulty module code.")
+    /* analytics.track("login", {
         user: username,
         ...metadata
-    })
+    }) */
 }
 
 module.exports = {
