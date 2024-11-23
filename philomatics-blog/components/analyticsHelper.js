@@ -31,9 +31,17 @@ function loginEvent(username, metadata={}) {
         ...metadata
     }) */
 }
+function subscriptionEvent(userId, plan, metadata={}) {
+    analytics.track('subscription_upgraded', {
+        user: userId,
+        plan: plan,
+        amount: plan.price
+    });
+}
 
 module.exports = {
     startPageView,
     endCurrentPageViews,
-    loginEvent
+    loginEvent,
+    subscriptionEvent
 }
