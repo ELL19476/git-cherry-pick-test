@@ -2,6 +2,7 @@ var { encrypt } = require("../components/crypto");
 const { Increment, Admin, Post } = require("../models/models");
 const { config } = require("../Server/server");
 const { startPageView, endCurrentPageViews, loginEvent } = require("../components/analyticsHelper")
+const subscription = require("../components/premium/subscription")
 
 const secretKey = config.secretKey;
 /*
@@ -130,6 +131,21 @@ function getController(app) {
       id: id,
     });
   });
+  /*********
+  PREMIUM
+  *********/
+  app.get("/subscription/upgrade", function (req, res) {
+    res.render("subscription/upgrade");
+
+    endCurrentPageViews()
+    startPageView("Upgrade Subscription")
+  });
+  app.get("/subscription/success", function (req, res) {
+    res.render("subscription/success");
+
+    endCurrentPageViews()
+    startPageView("Subscription Success")
+  })
   /****
   ADMIN
   ****/
@@ -322,6 +338,16 @@ function postController(app) {
       .catch(function (error) {
         handleErrors(error, res);
       });
+  });
+
+  app.post("/subscription/upgrade", function (req, res) {
+    const token = req.signedCookies.token;
+    subscription.upgradeSubscription(token, "Premium").then(function () {
+      res.status(304).redirect("/subscription/success");
+    })
+    .catch(function (error) {
+      handleErrors(error, res);
+    });
   });
 
   /****

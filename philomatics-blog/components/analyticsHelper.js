@@ -1,5 +1,5 @@
-// const { initializeCustomAnalytics } = require("@ell19476/analytics-extended")
-// const analytics = initializeCustomAnalytics();
+const { initializeCustomAnalytics } = require("@ell19476/analytics-extended")
+const analytics = initializeCustomAnalytics();
 
 /* PAGE VIEW TRACKING */
 const currentlyViewedPagesStack = []

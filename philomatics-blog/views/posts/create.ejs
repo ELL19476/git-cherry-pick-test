@@ -1,12 +1,12 @@
 <%- include("../main/htmlStart") %>
 <div class="form-container">
-<div class="blog blog-wall">
-  <form method="POST" action="/posts/create" class="blog blog-createpost">
-    <input class="blog-input blog-input--title" type="text" name="title" />
+  <form method="POST" action="/posts/create">
+    <label for="title">Post Title</label>
+    <input class="blog-input blog-input--title" type="text" name="title"/>
+    <label for="title">Post Content</label>
     <textarea class="blog-input blog-input--content" name="content" cols="30" rows="10"></textarea>
     <p class="help-text">Recommended: min. 400 Words</p>
-    <input type="submit" />
+    <input type="submit" value="Create Post" />
   </form>
-</div>
 </div>
 <%- include("../main/htmlEnd") %>
