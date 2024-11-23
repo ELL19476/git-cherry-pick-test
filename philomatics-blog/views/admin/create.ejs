@@ -1,0 +1,13 @@
+<%- include("../main/htmlStart") %>
+<div class="form-container">
+<form method="POST" action="/admin/create">
+    <label>Name</label>
+    <input type="text" name="name" />
+    <label>Email</label>
+    <input type="email" name="email" />
+    <label>Password</label>
+    <input type="password" name="password" />
+    <input type="submit">
+</form>
+</div>
+<%- include("../main/htmlEnd") %>

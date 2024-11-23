@@ -1,0 +1,12 @@
+<%- include("../main/htmlStart") %>
+<div class="feed">
+    <% index = 0 %>
+    <% postsLength = posts.length %>
+    <% if(postsLength > 0) { %>
+    <% for(index = 0; index < postsLength; index++) { %>
+    <% post = posts[index] %>
+    <%- include("postNode", { post: post }) %>
+    <%}%>
+    <%}%>
+</div>
+<%- include("../main/htmlEnd") %>
